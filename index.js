@@ -10,6 +10,7 @@ var listener = app.listen(PORT, () => {
 
 app.use(express.static('public'));
 app.get("/", (req, res) => {
-    res.status(200).send(__dirname + '/src/index.html');
+    res.contentType('html');
+    res.status(200).sendFile(__dirname + '/src/index.html');
     console.log("GET: src/index.html is released");
 });
