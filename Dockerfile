@@ -1,13 +1,12 @@
-FROM node:16
+FROM node:16-alpine
 USER root
 
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 COPY package*.json ./
 RUN npm install
 
-COPY . .
+COPY ./src ./src
 
 EXPOSE 3000
 
 CMD ["node", "index.js"]
-#CMD ["/bin/sh"]
