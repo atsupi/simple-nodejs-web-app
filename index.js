@@ -5,10 +5,10 @@ var app = express();
 var PORT = 3000;
 
 var listener = app.listen(PORT, () => {
-    console.log("${listener.address().port}");
+    console.log("port: %d", listener.address().port);
 });
 
-app.use(express.static('public'));
+app.use(express.static('src'));
 app.get("/", (req, res) => {
     res.contentType('html');
     res.status(200).sendFile(__dirname + '/src/index.html');
